@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    
+</head>
+<body>
+
+        <header>
+                <h1>Baza filmova</h1>
+                <h2>Najveća baza filmova!</h2>
+                <ul class="grid-container">
+                    <li><a href="index.html"><button>Naslovna</button></a></li>
+                    <li><a href="pretraga.html"><button>Pretraga</button></a></li>
+                    <li><a href="dodaj_film.html"><button>Dodaj film</button></a></li>
+                </ul>
+                </header>
+                  
+    <main> 
+            <div class="dekor" id="film"></div>
+            <main class="prva">
+                
+                    <div id="druga">
+                            <h1>HIT</h1>
+                            <h4>Pogledajte necete zazaliti</h4>
+                       
+                 </div>
+        
+                </main>
+    </main>
+    <footer>  Kontakt: 011/111-222</footer>
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <script>
+        const id = selector => document.getElementById(selector);
+
+        const filmContainer = id('film');
+        const url = "https://baza-filmova.herokuapp.com/pokazi-film/";
+    
+        let placeholder = document.getElementById('film');
+        let godina;
+        let naziv;
+        let slika;
+        let idFilma = location.search.substring(5)
+
+        function showMovie(podatak) {
+            godina = podatak.godina;
+            naziv = podatak.naziv;
+            slika = podatak.slika;
+            placeholder.innerHTML += `
+                <div id="movie" class="movie">
+                    <h3>${naziv} (${godina})</h3>
+                    <img src=${slika} alt="Movie poster" class="movie-img">
+                </div>
+            `;
+        }
+        function showMoreInfo(omdbInfo) {
+            if (omdbInfo.Response === 'False') {
+                id('movie').innerHTML += `
+                    <p>Nema dodatnih informacija o filmu</p>
+                `;
+            } else {
+                let omdb = omdbInfo;
+                console.log(omdb);
+
+                let plot = omdb.Plot;
+                let runtime = omdb.Runtime;
+                let genre = omdb.Genre;
+                let rating = omdb.imdbRating;
+                let director = omdb.Director;
+                let actors = omdb.Actors;
+                
+                id('movie').innerHTML += `
+                    <p>${runtime} | ${genre} | IMDB rating: ${rating}</p>
+                    <p>${plot}</p>
+                    <p>Actors: ${actors}</p>
+                    <p>Director: ${director}</p>
+                `; 
+            }
+        }
+
+        fetch(url+idFilma)
+            .then(response => response.json())
+            .then(response => {
+                showMovie(response);
+
+                fetch(`http://www.omdbapi.com/?t=${naziv}&plot=full&apikey=2f0dbac0`)
+                    .then( response => response.json() )
+                    .then( response => {
+                        showMoreInfo(response);
+                    })
+            })
+
+
+     
+    </script>
+</body>
+</html>

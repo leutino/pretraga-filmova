@@ -1,0 +1,159 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: content-box;
+}
+body{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.grid-container {
+  background-color: #2196F3;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+}
+/* .grid {
+  background-color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 20px;
+  font-size: 30px;
+} */
+input {
+ background-color:aliceblue
+}
+
+main {
+  grid-area: m;
+  padding: 10px;
+  background-image: url("images/filmslika2.jpg") ;
+  background-size: cover;
+  background-attachment: fixed;  
+}
+header {
+  background-color:burlywood;
+  grid-area: h;
+}
+footer {
+  background-color: #2196F3;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+footer {
+  grid-area: f;
+}
+.container {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 150px auto 50px;
+  grid-template-areas: 
+  "h h h h h h h h h h h h"
+  "m m m m m m m m m m m m"
+  "f f f f f f f f f f f f"
+}
+h1{
+  color: rgb(158, 146, 115);
+  text-align: center;
+  padding: 10px;
+}
+button {
+  border-radius: 20px;
+  border: solid 1px goldenrod;
+  padding: 5px;
+  margin-left: 12px;
+}
+button:hover {
+  border-radius: 20px;
+  border: solid 1px black;
+  padding: 5px;
+  color: goldenrod;
+}
+header h2 {
+ text-align: center;
+ padding: 10px;
+ color: rgb(158, 146, 115);
+}
+#filmovi {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  opacity: 0.8;
+  background-color: dimgray;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto auto;
+   
+  
+
+}
+h3{
+  width: 100px;
+}
+h2 {
+  padding: 10px;
+  color: #2196F3;
+}
+label, input {
+  display: block;
+  text-align: center;
+}
+input {
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid black;
+  width: 300px;
+}
+.dodaj_film {
+
+ display: flex;
+
+}
+.unos {
+ margin-left: 250px;
+ margin-right: 350px;
+}
+.slika{
+  padding: 30px;
+}
+.movie-img {
+  width: 100px;
+  height: 150px;
+}
+/* div {
+  background-color: dimgray;
+} */
+.img-prev {
+  width: 423px;
+  height: 423px;
+}
+#master {
+  margin-left: 120px; 
+}
+
+.prva #druga{
+  width: 450px;
+  height: auto;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 200px;
+  
+}
+.dekor {
+  padding-top: 57px;
+  text-align: center;
+
+}
+.dekor h3 {
+  width: auto;
+}
+.alert {
+  background-color: crimson;
+}
+ img:hover{
+width: 300px;
+height: 400px;
+}
+footer {
+
+}

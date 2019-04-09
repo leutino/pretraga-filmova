@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Search movies</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+
+</head>
+
+<body>
+    <div class="container">
+    <header>
+    <h1>Baza filmova</h1>
+    <h2>Najveća baza filmova!</h2>
+    <ul class="grid-container">
+        <li><a href="index.html"><button>Naslovna</button></a></li>
+        <li><a href="pretraga.html"><button>Pretraga</button></a></li>
+        <li><a href="dodaj_film.html"><button>Dodaj film</button></a></li>
+    </ul>
+    </header>
+    
+    <main> 
+            <main class="prva">
+                    <div id="druga">
+                        <h1>DOBRODOŠLI</h1>
+                        <h4>u najvecu bazu filmova!</h4>
+                    </div>
+        
+                </main>
+    </main>
+    <footer>  Kontakt: 011/111-222</footer>
+</div>
+
+
+<script>
+    const ws = new WebSocket('ws://baza-filmova.herokuapp.com')
+    ws.addEventListener('message', e => {
+        console.log(e.data) // TODO: prikazati notifikaciju u headeru
+        let alertText = e.data;
+        document.body.insertAdjacentHTML('afterbegin', `<div class="alert">${alertText}</div>`);
+    })
+
+</script>
+
+</body>
+</html>
